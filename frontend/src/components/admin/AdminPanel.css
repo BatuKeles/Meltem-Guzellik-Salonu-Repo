@@ -1,0 +1,109 @@
+/* ✅ src/components/admin/AdminPanel.css */
+
+.admin-panel {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.admin-panel h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #444;
+  text-align: center;
+}
+
+.admin-box {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f9f9f9;
+  transition: box-shadow 0.3s;
+}
+
+.admin-box:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-box h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.admin-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-box li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  color: #333;
+  position: relative;
+}
+
+.admin-box li:last-child {
+  border-bottom: none;
+}
+
+.admin-box button {
+  padding: 5px 10px;
+  margin-left: 6px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.admin-box button:hover {
+  background-color: #ddd;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.form-grid input,
+.form-grid button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.info-message {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  color: green;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.tab-buttons button.active,
+.tab-buttons button:hover {
+  background-color: #ddd;
+}

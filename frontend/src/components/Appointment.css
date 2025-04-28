@@ -1,0 +1,119 @@
+/* ✅ src/components/Appointment.css */
+
+.appointment-section {
+    padding: 60px 20px;
+    background-color: #141414;
+    text-align: center;
+    color: #ffffff;
+}
+
+.appointment-section h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #DEC102;
+}
+
+.calendar-header {
+    margin-bottom: 20px;
+}
+
+.calendar-month {
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.calendar-weekdays {
+    display: contents;
+}
+
+.calendar-weekday {
+    font-weight: bold;
+    color: #DEC102;
+    padding: 10px 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+}
+
+.calendar-day {
+    padding: 12px 0;
+    border: 1px solid #444;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #ffffff;
+    transition: background-color 0.3s;
+}
+
+.calendar-day.today {
+    background-color: #555;
+    opacity: 0.6;
+}
+
+.calendar-day.selected {
+    background-color: #DEC102;
+    color: #141414;
+    font-weight: bold;
+}
+
+.time-slots {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.time-slot {
+    background-color: #1e1e1e;
+    padding: 12px 20px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.time-slot span {
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.available,
+.unavailable {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.available {
+    background-color: #DEC102;
+    color: #141414;
+}
+
+.unavailable {
+    background-color: #444;
+    color: #888;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+    }
+
+    .calendar-day,
+    .calendar-weekday {
+        font-size: 12px;
+    }
+}
