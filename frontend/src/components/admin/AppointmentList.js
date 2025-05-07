@@ -1,14 +1,15 @@
 // ✅ src/admin/AppointmentList.js
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// Örnek (AppointmentList.js, Login.js vb.)
+import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);
 
   const fetchAppointments = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/appointments');
+      const response = await networkLayer.get('http://localhost:5000/api/appointments');
       setAppointments(response.data);
     } catch (error) {
       console.error('Randevular alınamadı:', error);

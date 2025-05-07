@@ -1,9 +1,10 @@
 // ✅ src/pages/Login.js
 
 import React, { useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 import { useNavigate } from 'react-router-dom';
 import '../pages/Login.css';
+
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -14,7 +15,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await networkLayer.post('http://localhost:5000/api/auth/login', {
         username,
         password,
       });

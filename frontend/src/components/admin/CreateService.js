@@ -1,7 +1,7 @@
 
 // ✅ src/components/admin/CreateService.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 
 const CreateService = () => {
   const [categories, setCategories] = useState([]);
@@ -15,7 +15,7 @@ const CreateService = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/categories');
+      const res = await networkLayer.get('http://localhost:5000/api/categories');
       setCategories(res.data);
     } catch (err) {
       console.error('Kategori alınamadı:', err);
@@ -33,7 +33,7 @@ const CreateService = () => {
       return;
     }
     try {
-      await axios.post(
+      await networkLayer.post(
         'http://localhost:5000/api/services',
         {
           category: selectedCategory,
@@ -55,7 +55,7 @@ const CreateService = () => {
   const handleAddCategory = async () => {
     if (!newCategory.trim()) return;
     try {
-      await axios.post(
+      await networkLayer.post(
         'http://localhost:5000/api/categories',
         { name: newCategory },
         {
@@ -73,7 +73,7 @@ const CreateService = () => {
   const handleDeleteCategory = async () => {
     if (!selectedCategory) return;
     try {
-      await axios.delete(`http://localhost:5000/api/categories/${selectedCategory}`, {
+      await networkLayer.delete(`http://localhost:5000/api/categories/${selectedCategory}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage('✅ Kategori silindi');

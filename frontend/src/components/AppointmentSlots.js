@@ -1,7 +1,7 @@
 // ✅ src/components/AppointmentSlots.js
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 import { format } from 'date-fns';
 
 const AppointmentSlots = ({ date }) => {
@@ -33,7 +33,7 @@ const AppointmentSlots = ({ date }) => {
       setLoading(true);
       try {
         const formattedDate = format(date, 'yyyy-MM-dd');
-        const res = await axios.get(`http://localhost:5000/api/appointments?date=${formattedDate}`);
+        const res = await networkLayer.get(`http://localhost:5000/api/appointments?date=${formattedDate}`);
 
         const taken = [];
         res.data.forEach(({ startTime, endTime }) => {

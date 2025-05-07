@@ -1,7 +1,7 @@
 // ✅ src/components/admin/ServiceList.js
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 
 const ServiceList = () => {
   const [services, setServices] = useState([]);
@@ -11,7 +11,7 @@ const ServiceList = () => {
 
   const fetchServices = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/services');
+      const res = await networkLayer.get('http://localhost:5000/api/services');
       setServices(res.data);
     } catch (err) {
       console.error('Hizmetler alınamadı:', err);
@@ -33,7 +33,7 @@ const ServiceList = () => {
     const confirm = window.confirm('Bu hizmeti silmek istediğinize emin misiniz?');
     if (!confirm) return;
     try {
-      await axios.delete(`http://localhost:5000/api/services/${id}`, {
+      await networkLayer.delete(`http://localhost:5000/api/services/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setServices((prev) => prev.filter((item) => item._id !== id));
@@ -49,7 +49,7 @@ const ServiceList = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/services/${editingId}`, editForm, {
+      await networkLayer.put(`http://localhost:5000/api/services/${editingId}`, editForm, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEditingId(null);

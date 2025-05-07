@@ -1,7 +1,7 @@
 
 // ✅ src/pages/Services.js
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 import './Services.css';
 
 const categoryImages = {
@@ -21,7 +21,7 @@ const Services = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/services');
+        const res = await networkLayer.get('http://localhost:5000/api/services');
         setServices(res.data);
       } catch (err) {
         console.error('Hizmetler alınamadı:', err);

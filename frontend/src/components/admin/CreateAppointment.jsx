@@ -1,6 +1,6 @@
 // ✅ src/components/admin/CreateAppointment.js
 import React, { useState } from 'react';
-import axios from 'axios';
+import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
 import './AdminPanel.css';
 
 const CreateAppointment = () => {
@@ -22,7 +22,7 @@ const CreateAppointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/appointments', formData);
+      await networkLayer.post('http://localhost:5000/api/appointments', formData);
       setMessage('✅ Randevu başarıyla oluşturuldu');
       setFormData({
         date: '',
