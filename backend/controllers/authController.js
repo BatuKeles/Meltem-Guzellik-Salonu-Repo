@@ -14,7 +14,6 @@ exports.loginAdmin = async (req, res) => {
 
   try {
     const admin = await Admin.findOne({ username });
-
     if (!admin) {
       return res.status(401).json({ message: 'Geçersiz kullanıcı' });
     }

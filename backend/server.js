@@ -10,12 +10,21 @@ const serviceRoutes = require('./routes/serviceRoutes');
 const authRoutes = require('./routes/authRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
+const helmet = require('helmet');
 
 dotenv.config();
 connectDB();
 
 const app = express();
-app.use(cors());
+app.use(helmet());
+
+app.use(cors({
+  origin: function (origin, callback) {
+    callback(null, origin);
+  },
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Statik dosyalar

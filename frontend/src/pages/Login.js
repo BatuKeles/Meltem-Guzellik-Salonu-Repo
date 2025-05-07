@@ -15,10 +15,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await networkLayer.post('http://localhost:5000/api/auth/login', {
+      const res = await networkLayer.post('https://localhost:5000/api/auth/login', {
         username,
         password,
       });
+      console.log(res);
       localStorage.setItem('token', res.data.token); // 🔐 Token'ı localStorage'a kaydet
       navigate('/admin'); // ✅ Başarılı giriş sonrası admin paneline yönlendir
     } catch (err) {

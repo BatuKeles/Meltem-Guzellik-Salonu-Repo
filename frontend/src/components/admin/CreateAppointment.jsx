@@ -22,7 +22,7 @@ const CreateAppointment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await networkLayer.post('http://localhost:5000/api/appointments', formData);
+      await networkLayer.post('https://localhost:5000/api/appointments', formData);
       setMessage('✅ Randevu başarıyla oluşturuldu');
       setFormData({
         date: '',

@@ -11,7 +11,7 @@ const ServiceList = () => {
 
   const fetchServices = async () => {
     try {
-      const res = await networkLayer.get('http://localhost:5000/api/services');
+      const res = await networkLayer.get('https://localhost:5000/api/services');
       setServices(res.data);
     } catch (err) {
       console.error('Hizmetler alınamadı:', err);
