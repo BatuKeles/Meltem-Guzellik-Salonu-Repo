@@ -9,13 +9,15 @@ const AppointmentList = () => {
 
   const fetchAppointments = async () => {
     try {
-      const response = await networkLayer.get('http://localhost:5000/api/appointments');
+      const today = new Date().toISOString().split('T')[0]; 
+      const response = await networkLayer.get(`https://localhost:5000/api/appointments?date=${today}`);
+      
       setAppointments(response.data);
     } catch (error) {
       console.error('Randevular alınamadı:', error);
     }
   };
-
+  
   useEffect(() => {
     fetchAppointments();
   }, []);

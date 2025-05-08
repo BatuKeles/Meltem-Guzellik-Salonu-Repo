@@ -15,7 +15,7 @@ const CreateService = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await networkLayer.get('http://localhost:5000/api/categories');
+      const res = await networkLayer.get('https://localhost:5000/api/categories');
       setCategories(res.data);
     } catch (err) {
       console.error('Kategori alınamadı:', err);
@@ -34,7 +34,7 @@ const CreateService = () => {
     }
     try {
       await networkLayer.post(
-        'http://localhost:5000/api/services',
+        'https://localhost:5000/api/services',
         {
           category: selectedCategory,
           title,
@@ -56,7 +56,7 @@ const CreateService = () => {
     if (!newCategory.trim()) return;
     try {
       await networkLayer.post(
-        'http://localhost:5000/api/categories',
+        'https://localhost:5000/api/categories',
         { name: newCategory },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -73,7 +73,7 @@ const CreateService = () => {
   const handleDeleteCategory = async () => {
     if (!selectedCategory) return;
     try {
-      await networkLayer.delete(`http://localhost:5000/api/categories/${selectedCategory}`, {
+      await networkLayer.delete(`https://localhost:5000/api/categories/${selectedCategory}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setMessage('✅ Kategori silindi');

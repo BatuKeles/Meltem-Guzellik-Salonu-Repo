@@ -1,6 +1,6 @@
 // ✅ src/components/admin/CreateAppointment.js
 import React, { useState } from 'react';
-import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
+import networkLayer from "../../api/axios"; 
 import './AdminPanel.css';
 
 const CreateAppointment = () => {

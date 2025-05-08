@@ -33,7 +33,7 @@ const ServiceList = () => {
     const confirm = window.confirm('Bu hizmeti silmek istediğinize emin misiniz?');
     if (!confirm) return;
     try {
-      await networkLayer.delete(`http://localhost:5000/api/services/${id}`, {
+      await networkLayer.delete(`https://localhost:5000/api/services/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setServices((prev) => prev.filter((item) => item._id !== id));
@@ -49,7 +49,7 @@ const ServiceList = () => {
 
   const handleUpdate = async () => {
     try {
-      await networkLayer.put(`http://localhost:5000/api/services/${editingId}`, editForm, {
+      await networkLayer.put(`https://localhost:5000/api/services/${editingId}`, editForm, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       setEditingId(null);
