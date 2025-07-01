@@ -6,6 +6,15 @@
   gap: 20px;
   justify-content: center;
   padding: 2rem;
+  background: #181818;
+}
+
+.service-card {
+  background: none !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .card-image {
@@ -16,6 +25,25 @@
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  background-repeat: no-repeat;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  display: block;
 }
 
 .card-overlay {

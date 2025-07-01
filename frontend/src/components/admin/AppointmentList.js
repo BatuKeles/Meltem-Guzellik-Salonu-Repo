@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 // Örnek (AppointmentList.js, Login.js vb.)
 import networkLayer from "../../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
+import './AdminPanel.css';
 
 const AppointmentList = () => {
   const [appointments, setAppointments] = useState([]);

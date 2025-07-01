@@ -5,7 +5,7 @@
   color: white;
   padding: 20px 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   font-size: 16px;
   position: fixed;
@@ -14,21 +14,31 @@
   z-index: 100;
 }
 
-.footer-left,
-.footer-right {
+.footer-icons {
   display: flex;
   align-items: center;
-  gap: 130px; /* 📌 Giriş ve Instagram ikonları arasına boşluk koyar */
+  gap: 20px; /* İkonlar arası boşluk azaltıldı */
+  justify-content: center;
 }
 
-.footer-left a,
-.footer-right a {
+.footer-admin-secret {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.footer-icons a {
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 24px;
 }
 
-.footer-left a:hover,
-.footer-right a:hover {
+.footer-icons a:hover {
   color: #dec102;
 }

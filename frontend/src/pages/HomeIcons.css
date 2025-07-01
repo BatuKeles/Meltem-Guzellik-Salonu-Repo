@@ -1,0 +1,25 @@
+/* Home sayfası alt ikonları için özel stil */
+.home-bottom-icons {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border: none;
+}
+.home-bottom-icons a {
+  color: #fff;
+  margin: 0 30px;
+  font-size: 28px;
+  background: none;
+  transition: color 0.3s;
+}
+.home-bottom-icons a:hover {
+  color: #dec102;
+}

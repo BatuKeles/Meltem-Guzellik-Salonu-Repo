@@ -1,4 +1,3 @@
-
 // ✅ src/pages/Services.js
 import React, { useEffect, useState } from 'react';
 import networkLayer from "../api/axios"; // Eğer bulunduğun dosya src/components/... içindeyse
@@ -35,8 +34,39 @@ const Services = () => {
     return acc;
   }, {});
 
+  // Gizli admin giriş fonksiyonu
+  const handleSecretAdmin = () => {
+    let count = parseInt(localStorage.getItem('adminSecretClick') || '0', 10);
+    count++;
+    if (count >= 5) {
+      localStorage.removeItem('adminSecretClick');
+      window.location.href = '/login';
+    } else {
+      localStorage.setItem('adminSecretClick', count);
+      setTimeout(() => localStorage.setItem('adminSecretClick', 0), 2000);
+    }
+  };
+
   return (
-    <div className="services-wrapper">
+    <div className="services-wrapper" style={{ position: 'relative', minHeight: '100vh' }}>
+      {/* Sol alt köşede daha büyük ve yüksek z-index'li gizli admin giriş alanı */}
+      <div
+        onClick={handleSecretAdmin}
+        tabIndex={0}
+        style={{
+          position: 'fixed',
+          left: 0,
+          bottom: 0,
+          width: 80,
+          height: 80,
+          background: 'transparent',
+          cursor: 'pointer',
+          zIndex: 9999,
+          pointerEvents: 'auto',
+          touchAction: 'manipulation',
+          // Mobilde tıklanabilirliği artırmak için outline eklenmedi
+        }}
+      />
       {Object.entries(grouped).map(([category, items]) => {
         const imageUrl = categoryImages[category];
 
